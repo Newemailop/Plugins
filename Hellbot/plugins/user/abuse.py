@@ -4,7 +4,6 @@ from pyrogram.types import Message
 from Hellbot.functions.datas import MASTERS, ABUSE
 from Hellbot.core.config import Config
 from . import Config, HelpMenu, db, hellbot, on_message
-from Config import HANDLERS as cmd
 import asyncio
 
 @on_message("abuse", allow_stan=True)
