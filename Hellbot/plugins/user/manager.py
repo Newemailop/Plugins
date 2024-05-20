@@ -6,7 +6,7 @@ import psutil
 import requests
 import urllib3
 from pyrogram.types import Message
-from pyrogram import Client
+from pyrogram import Client as client
 from Hellbot import HEROKU_APP
 from Hellbot.core.config import all_env, os_configs
 from Hellbot.functions.paste import spaceBin
