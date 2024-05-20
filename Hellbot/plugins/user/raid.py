@@ -10,6 +10,7 @@ import asyncio
 async def abuse(c: Client, m: Message):
     HELL = "".join(m.text.split(maxsplit=1)[1:]).split(" ", 2)
 
+    await hellbot.delete(m, "`Raid Started Successfully.☠️`")
     if len(HELL) == 2:
         lee = await c.get_users(HELL[1])
         counts = int(HELL[0])
@@ -26,7 +27,6 @@ async def abuse(c: Client, m: Message):
         for _ in range(counts):
             reply = choice(RAID)
             msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
-            await hellbot.delete(m, "`Raid Started Successfully.☠️`")
             await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
 
