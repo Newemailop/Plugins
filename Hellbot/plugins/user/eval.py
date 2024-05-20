@@ -80,6 +80,12 @@ async def runeval(client: Client, message: Message):
 
 @on_message(["exec", "term"], allow_stan=True)
 async def runterm(client: Client, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 2:
         return await hellbot.delete(message, "No shell code provided!")
 
@@ -138,6 +144,12 @@ async def runterm(client: Client, message: Message):
 
 @on_message(["sh", "shell"], allow_stan=True)
 async def runshell(_, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 2:
         return await hellbot.delete(message, "No shell code provided!")
 
