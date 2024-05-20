@@ -36,9 +36,11 @@ async def abuse(c: Client, m: Message):
         await m.reply_text(".abuse 10 <reply to user or username>") 
 
 
-add_command_help(
-    "•─╼⃝𖠁 ᴀʙᴜꜱᴇ",
-    [
-        ["abuse", "Tᴏ abuse someone."],
-    ],
-  )
+HelpMenu("Abuse").add(
+    "abuse",
+    "<reply> or <userid>",
+    "To abuse replied user in present chat!",
+    "abuse @ForGo10God",
+).info(
+    "abusing!!"
+).done()
