@@ -26,6 +26,7 @@ async def abuse(c: Client, m: Message):
         for _ in range(counts):
             reply = choice(RAID)
             msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
+            await hellbot.delete(m, "`Raid Started Successfully.☠️`")
             await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
 
