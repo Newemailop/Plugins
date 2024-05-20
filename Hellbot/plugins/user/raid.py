@@ -14,7 +14,7 @@ async def abuse(c: Client, m: Message):
         lee = await c.get_users(HELL[1])
         counts = int(HELL[0])
         for _ in range(counts):
-            reply = choice(ABUSE)
+            reply = choice(RAID)
             msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
             await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
@@ -24,7 +24,7 @@ async def abuse(c: Client, m: Message):
         lee = await c.get_users(user_id)
         counts = int(HELL[0])
         for _ in range(counts):
-            reply = choice(ABUSE)
+            reply = choice(RAID)
             msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
             await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
