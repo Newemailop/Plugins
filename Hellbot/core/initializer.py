@@ -26,7 +26,14 @@ async def _AuthUsers() -> None:
 async def _GodUsers() -> None:
     temp_list = []
     temp_list.append(Config.OWNER_ID)
-#    temp_list.extend([(await client.get_me()).id for client in hellbot.users])
+
+    # Get your own ID to exclude it
+    my_id = Config.OWNER_ID
+
+    # Extend temp_list with IDs from hellbot.users, excluding your own ID
+    temp_list.extend([
+        (await client.get_me()).id for client in hellbot.users if (await client.get_me()).id != my_id
+    ])
 
     users = list(set(temp_list))
     for user in users:
