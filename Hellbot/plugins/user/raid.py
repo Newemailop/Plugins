@@ -1,7 +1,7 @@
 from random import choice
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Hellbot.functions.datas import MASTERS, ABUSE
+from Hellbot.functions.datas import MASTERS, RAID
 from Hellbot.core.config import Config
 from . import Config, HelpMenu, db, hellbot, on_message
 import asyncio
