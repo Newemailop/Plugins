@@ -24,6 +24,12 @@ async def aexec(code, client, message):
 
 @on_message("eval", allow_stan=True)
 async def runeval(client: Client, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 2:
         return await hellbot.delete(message, "No python code provided!")
 
