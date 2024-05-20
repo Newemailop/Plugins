@@ -10,37 +10,30 @@ import asyncio
 @Client.on_message(
     filters.command(["abuse"], ".") & (filters.me | filters.user(STAN))
 )
-async def abuse(x: Client, e: Message):
-    NOBI = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+async def abuse(c: Client, m: Message):
+    HELL = "".join(m.text.split(maxsplit=1)[1:]).split(" ", 2)
 
-    if len(NOBI) == 2:
-        ok = await x.get_users(NOBI[1])
-        counts = int(NOBI[0])
+    if len(HELL) == 2:
+        lee = await c.get_users(HELL[1])
+        counts = int(HELL[0])
         for _ in range(counts):
             reply = choice(ABUSE)
-            msg = f"[{ok.first_name}](tg://user?id={ok.id}) {reply}"
-            await x.send_message(e.chat.id, msg)
+            msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
+            await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
 
-    elif e.reply_to_message:
-        user_id = e.reply_to_message.from_user.id
-        ok = await x.get_users(user_id)
-        counts = int(NOBI[0])
+    elif m.reply_to_message:
+        user_id = m.reply_to_message.from_user.id
+        lee = await c.get_users(user_id)
+        counts = int(HELL[0])
         for _ in range(counts):
             reply = choice(ABUSE)
-            msg = f"[{ok.first_name}](tg://user?id={ok.id}) {reply}"
-            await x.send_message(e.chat.id, msg)
+            msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
+            await c.send_message(e.chat.id, msg)
             await asyncio.sleep(0.1)
 
     else:
-        await e.reply_text(".𝐚𝐛𝐮ꜱ𝐞 𝟏𝟎 <𝐫𝐞𝐩𝐥𝐲 𝐭𝐨 𝐮ꜱ𝐞𝐫 𝐨𝐫 𝐮ꜱ𝐞𝐫𝐧𝐚𝐦𝐞>")
-
-# Credits: KUNAL AND NOBITA XD 
-# Copyright (C) 2024 JAPANESE X USERBOT AND STORM USERBOT 
-#DON'T KANG FUCKING COWARD
-#BSDKE KANG KIYA TOH SOCH LIYO
-#AAG LAGA DUNGA TERE ANDAR 
-#SAMJHA ? 
+        await m.reply_text(".abuse 10 <reply to user or username>") 
 
 
 add_command_help(
