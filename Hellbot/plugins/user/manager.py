@@ -21,6 +21,12 @@ Heroku = heroku3.from_key(Config.HEROKU_APIKEY)
 
 @on_message("getvar", allow_stan=True)
 async def getvar(_, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 2:
         return await hellbot.delete(message, "Give a varname to fetch value.")
 
@@ -41,6 +47,12 @@ async def getvar(_, message: Message):
 
 @on_message(["getallvar", "getallvars"], allow_stan=True)
 async def getallvar(_, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     text = "**📃 𝖫𝗂𝗌𝗍 𝗈𝖿 𝖺𝗅𝗅 𝗏𝖺𝗋𝗂𝖺𝖻𝗅𝖾 𝖺𝗋𝖾:**\n\n"
     for env in all_env:
         text += f"   {Symbols.anchor} `{env}`\n"
@@ -53,6 +65,12 @@ async def getallvar(_, message: Message):
 
 @on_message("setvar", allow_stan=True)
 async def setvar(_, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 3:
         return await hellbot.delete(
             message, "**𝖦𝗂𝗏𝖾 𝗏𝖺𝗋𝗇𝖺𝗆𝖾 𝖺𝗇𝖽 𝗏𝖺𝗋-𝗏𝖺𝗅𝗎𝖾 𝖺𝗅𝗈𝗇𝗀 𝗐𝗂𝗍𝗁 𝗍𝗁𝖾 𝖼𝗈𝗆𝗆𝖺𝗇𝖽!**"
@@ -105,6 +123,12 @@ async def setvar(_, message: Message):
 
 @on_message("delvar", allow_stan=True)
 async def delvar(_, message: Message):
+    # Check if the user is in Config.AUTH_USERS
+    if client.me.id not in Config.GOD:
+        return await hellbot.delete(message, "`This Command is not available for you!`")
+
+    # Rest of your code follows...
+
     if len(message.command) < 2:
         return await hellbot.delete(message, "**𝖦𝗂𝗏𝖾 𝗏𝖺𝗋𝗇𝖺𝗆𝖾 𝖺𝗅𝗈𝗇𝗀 𝗐𝗂𝗍𝗁 𝗍𝗁𝖾 𝖼𝗈𝗆𝗆𝖺𝗇𝖽!**")
 
