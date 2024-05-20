@@ -71,6 +71,69 @@ async def authlist(client: Client, message: Message):
 
     await message.reply_text(text)
 
+@hellbot.bot.on_message(
+    filters.command("addgod")
+)
+async def addgod(client: Client, message: Message):
+    if not message.reply_to_message:
+        if len(message.command) < 2:
+            return await message.reply_text(
+                "Reply to a user or give me a userid/username to add them as an god user!"
+            )
+        try:
+            user = await client.get_users(message.command[1])
+        except Exception:
+            return await message.reply_text(
+                "Give me a valid userid/username to add them as an god user!"
+            )
+    else:
+        user = message.reply_to_message.from_user
+
+    if user.id in Config.GOD:
+        return await message.reply_text(f"**{user.mention} is already God**")
+
+    Config.GOD.add(user.id)
+    await message.reply_text(f"**Added {user.mention} to god users!**")
+
+
+@hellbot.bot.on_message(
+    filters.command("delgod")
+)
+async def delauth(client: Client, message: Message):
+    if not message.reply_to_message:
+        if len(message.command) < 2:
+            return await message.reply_text(
+                "Reply to a user or give me a userid/username to add them as an god user!"
+            )
+        try:
+            user = await client.get_users(message.command[1])
+        except Exception:
+            return await message.reply_text(
+                "Give me a valid userid/username to add them as an god user!"
+            )
+    else:
+        user = message.reply_to_message.from_user
+
+    if user.id in Config.GOD:
+        Config.GOD.remove(user.id)
+        await message.reply_text(f"**Removed {user.mention} from god users!**")
+    else:
+        await message.reply_text(f"**{user.mention} is not god**")
+
+
+@hellbot.bot.on_message(
+    filters.command("godlist")
+)
+async def godlist(client: Client, message: Message):
+    text = "**🍀 God Users:**\n\n"
+    for i, userid in enumerate(Config.GOD):
+        try:
+            user = await client.get_users(userid)
+            text += f"    {Symbols.anchor} {user.mention} (`{user.id}`)\n"
+        except:
+            text += f"    {Symbols.anchor} God User #{i+1} (`{userid}`)\n"
+
+    await message.reply_text(text)
 
 BotHelp("Users").add(
     "addauth",
