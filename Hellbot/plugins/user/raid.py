@@ -33,8 +33,8 @@ async def abuse(c: Client, m: Message):
         await m.reply_text(".raid 10 <reply to user or username>") 
 
 
-HelpMenu("Raid").add(
-    "raid abusive word on someone",
+HelpMenu("raid").add(
+    "raid",
     "<reply> or <userid>",
     "To raid abusive words on replied user in present chat!",
     "raid @ForGo10God",
