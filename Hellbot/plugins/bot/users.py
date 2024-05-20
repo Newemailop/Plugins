@@ -5,7 +5,7 @@ from . import BotHelp, Config, Symbols, hellbot
 
 
 @hellbot.bot.on_message(
-    filters.command("addauth") & Config.AUTH_USERS
+    filters.command("addauth")
 )
 async def addauth(client: Client, message: Message):
     if not message.reply_to_message:
@@ -33,7 +33,7 @@ async def addauth(client: Client, message: Message):
 
 
 @hellbot.bot.on_message(
-    filters.command("delauth") & Config.AUTH_USERS
+    filters.command("delauth")
 )
 async def delauth(client: Client, message: Message):
     if not message.reply_to_message:
@@ -58,7 +58,7 @@ async def delauth(client: Client, message: Message):
 
 
 @hellbot.bot.on_message(
-    filters.command("authlist") & Config.AUTH_USERS
+    filters.command("authlist")
 )
 async def authlist(client: Client, message: Message):
     text = "**🍀 Authorized Users:**\n\n"
