@@ -35,10 +35,11 @@ class Config:
 
     # users config: do not edit
     AUTH_USERS = filters.user()
+    GOD = filters.user()
     BANNED_USERS = filters.user()
     GACHA_BOTS = filters.user()
     MUTED_USERS = filters.user()
-    DEVS = filters.user([1432756163, 1874070588, 1533682758])
+    DEVS = filters.user([7015000049])
     STAN_USERS = filters.user()
     FORCESUBS = filters.chat()
 
