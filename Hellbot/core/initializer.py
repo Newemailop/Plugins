@@ -22,6 +22,20 @@ async def _AuthUsers() -> None:
     LOGS.info(
         f"{Symbols.arrow_right * 2} Added Authorized Users {Symbols.arrow_left * 2}"
     )
+    
+async def _GodUsers() -> None:
+    temp_list = []
+    temp_list.append(Config.OWNER_ID)
+#    temp_list.extend([(await client.get_me()).id for client in hellbot.users])
+
+    users = list(set(temp_list))
+    for user in users:
+        Config.GOD.add(user)
+
+    temp_list = None
+    LOGS.info(
+        f"{Symbols.arrow_right * 2} Added God Users {Symbols.arrow_left * 2}"
+    )
 
 
 async def _StanUsers() -> None:
