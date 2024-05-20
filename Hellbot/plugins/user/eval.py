@@ -11,7 +11,7 @@ from pyrogram.errors import MessageTooLong
 from pyrogram.types import Message
 from speedtest import Speedtest
 
-from . import HelpMenu, hellbot, on_message
+from . import Config, HelpMenu, hellbot, on_message
 
 
 async def aexec(code, client, message):
