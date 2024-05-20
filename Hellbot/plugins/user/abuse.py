@@ -6,7 +6,7 @@ from Hellbot.core.config import Config
 from . import Config, HelpMenu, db, hellbot, on_message
 import asyncio
 
-@on_message("abuse", allow_stan=True)
+@on_message("raid", allow_stan=True)
 async def abuse(c: Client, m: Message):
     HELL = "".join(m.text.split(maxsplit=1)[1:]).split(" ", 2)
 
