@@ -32,6 +32,8 @@ async def restart_bot(_, message: Message):
 
 @on_message("shutdown", allow_stan=True)
 async def shutdown_bot(_, message: Message):
+    if client.me.id not in Config.AUTH_USERS:
+        return await hellbot.delete(message, "`Can't Shutdown at the Moment, Try again Later!`")
     await hellbot.edit(
         message,
         "**[ ⚠️ ]** __HellBot is now offline! Manually start again to get it back online.__",
