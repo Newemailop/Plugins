@@ -10,7 +10,7 @@ from ..btnsG import gen_bot_help_buttons, start_button
 from . import HELP_MSG, START_MSG, BotHelp, Config, hellbot
 
 
-@hellbot.bot.on_message(filters.command("start"))
+@hellbot.bot.on_message(filters.command("start") & filters.private)
 async def start_pm(_, message: Message):
     btns = start_button()
 
@@ -21,7 +21,7 @@ async def start_pm(_, message: Message):
     )
 
 
-@hellbot.bot.on_message(filters.command("help"))
+@hellbot.bot.on_message(filters.command("help") & filters.private)
 async def help_pm(_, message: Message):
     btns = await gen_bot_help_buttons()
 
@@ -32,7 +32,7 @@ async def help_pm(_, message: Message):
     )
 
 
-@hellbot.bot.on_message(filters.command("restart"))
+@hellbot.bot.on_message(filters.command("restart") & filters.private)
 async def restart_clients(_, message: Message):
     await message.reply_text("Restarted Bot Successfully ✅")
     try:
