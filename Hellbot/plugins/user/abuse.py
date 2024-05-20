@@ -30,14 +30,14 @@ async def abuse(c: Client, m: Message):
             await asyncio.sleep(0.1)
 
     else:
-        await m.reply_text(".abuse 10 <reply to user or username>") 
+        await m.reply_text(".raid 10 <reply to user or username>") 
 
 
-HelpMenu("Abuse").add(
-    "abuse",
+HelpMenu("Raid").add(
+    "raid abusive word on someone",
     "<reply> or <userid>",
-    "To abuse replied user in present chat!",
-    "abuse @ForGo10God",
+    "To raid abusive words on replied user in present chat!",
+    "raid @ForGo10God",
 ).info(
-    "abusing!!"
+    "raid things!!"
 ).done()
