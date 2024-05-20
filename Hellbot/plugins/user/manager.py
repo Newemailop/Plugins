@@ -6,7 +6,7 @@ import psutil
 import requests
 import urllib3
 from pyrogram.types import Message
-from pyrogram import Client as client
+from pyrogram import Client
 from Hellbot import HEROKU_APP
 from Hellbot.core.config import all_env, os_configs
 from Hellbot.functions.paste import spaceBin
@@ -20,7 +20,7 @@ Heroku = heroku3.from_key(Config.HEROKU_APIKEY)
 
 
 @on_message("getvar", allow_stan=True)
-async def getvar(_, message: Message):
+async def getvar(client: Client, message: Message):
     # Check if the user is in Config.AUTH_USERS
     if client.me.id not in Config.GOD:
         return await hellbot.delete(message, "`This Command is not available for you!`")
@@ -46,7 +46,7 @@ async def getvar(_, message: Message):
 
 
 @on_message(["getallvar", "getallvars"], allow_stan=True)
-async def getallvar(_, message: Message):
+async def getallvar(client: Client, message: Message):
     # Check if the user is in Config.AUTH_USERS
     if client.me.id not in Config.GOD:
         return await hellbot.delete(message, "`This Command is not available for you!`")
@@ -64,7 +64,7 @@ async def getallvar(_, message: Message):
 
 
 @on_message("setvar", allow_stan=True)
-async def setvar(_, message: Message):
+async def setvar(client: Client, message: Message):
     # Check if the user is in Config.AUTH_USERS
     if client.me.id not in Config.GOD:
         return await hellbot.delete(message, "`This Command is not available for you!`")
@@ -122,7 +122,7 @@ async def setvar(_, message: Message):
 
 
 @on_message("delvar", allow_stan=True)
-async def delvar(_, message: Message):
+async def delvar(client: Client, message: Message):
     # Check if the user is in Config.AUTH_USERS
     if client.me.id not in Config.GOD:
         return await hellbot.delete(message, "`This Command is not available for you!`")
