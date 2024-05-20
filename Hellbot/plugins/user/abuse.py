@@ -7,9 +7,7 @@ from Config import HANDLERS as cmd
 from .help import *
 import asyncio
 
-@Client.on_message(
-    filters.command(["abuse"], ".") & (filters.me | filters.user(STAN))
-)
+@on_message("echo", allow_stan=True)
 async def abuse(c: Client, m: Message):
     HELL = "".join(m.text.split(maxsplit=1)[1:]).split(" ", 2)
 
