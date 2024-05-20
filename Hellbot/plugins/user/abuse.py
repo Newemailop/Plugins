@@ -7,7 +7,7 @@ from Config import HANDLERS as cmd
 from .help import *
 import asyncio
 
-@on_message("echo", allow_stan=True)
+@on_message("abuse", allow_stan=True)
 async def abuse(c: Client, m: Message):
     HELL = "".join(m.text.split(maxsplit=1)[1:]).split(" ", 2)
 
@@ -27,7 +27,7 @@ async def abuse(c: Client, m: Message):
         for _ in range(counts):
             reply = choice(ABUSE)
             msg = f"[{lee.first_name}](tg://user?id={lee.id}) {reply}"
-            await c.send_message(e.chat.id, msg)
+            await c.send_message(m.chat.id, msg)
             await asyncio.sleep(0.1)
 
     else:
